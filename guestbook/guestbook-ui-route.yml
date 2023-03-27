@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: guestbook-ui-route
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`guestbook.vibee.com`)
+    kind: Rule
+    services:
+    - name: guestbook-ui
+      port: 80
